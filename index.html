@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" manifest="cache.appcache">
+<head>
+    <meta charset="UTF-8">
+    <title>PS5 Custom Offline Host</title>
+    <style>
+        body { background-color: #121212; color: #ffffff; font-family: sans-serif; text-align: center; padding-top: 50px; }
+        .status { color: #00ffcc; font-weight: bold; }
+    </style>
+    <script>
+        // كود برمجى لمراقبة حالة الحفظ التلقائي (Cache)
+        window.applicationCache.addEventListener('cached', function() {
+            document.getElementById('status').innerText = "تم حفظ الملفات بنجاح! يمكنك الآن الفصل عن الإنترنت.";
+        }, false);
+        window.applicationCache.addEventListener('updateready', function() {
+            window.applicationCache.swapCache();
+            location.reload();
+        }, false);
+        window.applicationCache.addEventListener('noupdate', function() {
+            document.getElementById('status').innerText = "الموقع جاهز ومحفوظ مسبقاً للعمل دون إنترنت.";
+        }, false);
+        window.applicationCache.addEventListener('error', function() {
+            document.getElementById('status').innerText = "حدث خطأ أثناء الحفظ التلقائي.";
+        }, false);
+    </script>
+</head>
+<body>
+    <h1>مستضيف ثغرات PS5 الخاص بك</h1>
+    <p>الحالة: <span id="status">جاري فحص الذاكرة المؤقتة...</span></p>
+    
+    <!-- هنا يمكنك وضع الأزرار الخاصة بتشغيل الـ Payloads -->
+    <button onclick="alert('هنا تضع كود الثغرة الخواص بك')">تشغيل الثغرة</button>
+</body>
+</html>
