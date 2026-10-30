@@ -1,0 +1,8 @@
+CACHE MANIFEST
+# v1.0.0 - تغيير هذا الرقم عند تحديث الملفات ليقوم الـ PS5 بتحديث الكاش
+
+CACHE:
+index.html
+
+NETWORK:
+*
